@@ -289,7 +289,7 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-      /api/food/calories:
+  /api/food/calories:
     post:
       summary: Predict Food Calories
       operationId: predictFoodCalories
