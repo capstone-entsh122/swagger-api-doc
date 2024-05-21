@@ -289,6 +289,45 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
+      /api/food/calories:
+    post:
+      summary: Predict Food Calories
+      operationId: predictFoodCalories
+      requestBody:
+        description: Image of the food
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                image:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Prediction successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  calories:
+                    type: number
+                    example: 250
+        '400':
+          description: Prediction failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Prediction failed
+                  error:
+                    type: string
+                    example: Invalid input data
 components:
   securitySchemes:
     bearerAuth:
