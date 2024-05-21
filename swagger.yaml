@@ -59,12 +59,6 @@ paths:
                       items:
                         type: string
                       example: ["hypertension"]
-                    extraInfo:
-                      type: string
-                      example: I have a busy schedule
-                    notificationTime:
-                      type: string
-                      example: 18:00
       responses:
         '200':
           description: Signup successful
@@ -150,12 +144,6 @@ paths:
                         items:
                           type: string
                         example: ["hypertension"]
-                      extraInfo:
-                        type: string
-                        example: I have a busy schedule
-                      notificationTime:
-                        type: string
-                        example: 18:00
                   communities:
                     type: array
                     items:
@@ -200,6 +188,19 @@ paths:
                   message:
                     type: string
                     example: Profile updated successfully
+        '400':
+          description: Update failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Update failed
+                  error:
+                    type: string
+                    example: Invalid input data
   /api/users/preferences:
     put:
       summary: Update User Preferences
@@ -234,12 +235,6 @@ paths:
                   items:
                     type: string
                   example: ["cardiovascular"]
-                extraInfo:
-                  type: string
-                  example: Prefer morning workouts
-                notificationTime:
-                  type: string
-                  example: 06:00
       responses:
         '200':
           description: Preferences updated successfully
@@ -251,6 +246,19 @@ paths:
                   message:
                     type: string
                     example: Preferences updated successfully
+        '400':
+          description: Update failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Update failed
+                  error:
+                    type: string
+                    example: Invalid input data
   /api/users/delete:
     delete:
       summary: Delete User Account
@@ -268,6 +276,19 @@ paths:
                   message:
                     type: string
                     example: User account deleted successfully
+        '400':
+          description: Deletion failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Deletion failed
+                  error:
+                    type: string
+                    example: Invalid input data
 components:
   securitySchemes:
     bearerAuth:
