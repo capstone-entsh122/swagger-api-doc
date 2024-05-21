@@ -9,6 +9,108 @@ servers:
   - url: https://api.yoursportapp.com
     description: Production server
 paths:
+/api/users/login:
+    post:
+      summary: User Login
+      operationId: userLogin
+      requestBody:
+        description: User login credentials
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: user@example.com
+                password:
+                  type: string
+                  example: userpassword
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    example: jwt_token
+        '401':
+          description: Login failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Login failed
+                  error:
+                    type: string
+                    example: Invalid email or password
+  /api/users/signup:
+    post:
+      summary: User Signup
+      operationId: userSignup
+      requestBody:
+        description: User signup details
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: user@example.com
+                password:
+                  type: string
+                  example: userpassword
+                displayName:
+                  type: string
+                  example: User Name
+                photoUrl:
+                  type: string
+                  example: http://example.com/photo.jpg
+                gender:
+                  type: string
+                  example: male
+                age:
+                  type: integer
+                  example: 25
+                location:
+                  type: string
+                  example: City, Country
+                equipment:
+                  type: string
+                  example: none
+      responses:
+        '200':
+          description: Signup successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                    example: jwt_token
+        '400':
+          description: Signup failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Signup failed
+                  error:
+                    type: string
+                    example: Invalid input data
   /api/users/profile:
     get:
       summary: Get User Profile
