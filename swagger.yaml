@@ -70,6 +70,11 @@ paths:
                   message:
                     type: string
                     example: Signup successful
+                  recommendedSports:
+                    type: array
+                    items:
+                      type: string
+                    example: ["Yoga", "Running", "Swimming"]
         '400':
           description: Signup failed
           content:
