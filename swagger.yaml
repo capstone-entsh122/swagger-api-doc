@@ -9,7 +9,7 @@ servers:
   - url: https://api.yoursportapp.com
     description: Production server
 paths:
-/api/users/login:
+  /api/users/login:
     post:
       summary: User Login
       operationId: userLogin
