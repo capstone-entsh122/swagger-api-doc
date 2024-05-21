@@ -9,48 +9,6 @@ servers:
   - url: https://api.yoursportapp.com
     description: Production server
 paths:
-  /api/users/login:
-    post:
-      summary: User Login
-      operationId: userLogin
-      requestBody:
-        description: User login credentials
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                email:
-                  type: string
-                  example: user@example.com
-                password:
-                  type: string
-                  example: userpassword
-      responses:
-        '200':
-          description: Login successful
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  token:
-                    type: string
-                    example: jwt_token
-        '401':
-          description: Login failed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Login failed
-                  error:
-                    type: string
-                    example: Invalid email or password
   /api/users/signup:
     post:
       summary: User Signup
@@ -66,27 +24,47 @@ paths:
                 email:
                   type: string
                   example: user@example.com
-                password:
-                  type: string
-                  example: userpassword
                 displayName:
                   type: string
                   example: User Name
-                photoUrl:
-                  type: string
-                  example: http://example.com/photo.jpg
                 gender:
                   type: string
                   example: male
                 age:
                   type: integer
                   example: 25
-                location:
-                  type: string
-                  example: City, Country
                 equipment:
                   type: string
                   example: none
+                preferences:
+                  type: object
+                  properties:
+                    motivation:
+                      type: string
+                      example: Get fit
+                    availableTime:
+                      type: integer
+                      example: 30
+                    fitnessLevel:
+                      type: string
+                      example: average
+                    placePreference:
+                      type: string
+                      example: home
+                    socialPreference:
+                      type: string
+                      example: alone
+                    diseaseHistory:
+                      type: array
+                      items:
+                        type: string
+                      example: ["hypertension"]
+                    extraInfo:
+                      type: string
+                      example: I have a busy schedule
+                    notificationTime:
+                      type: string
+                      example: 18:00
       responses:
         '200':
           description: Signup successful
@@ -95,9 +73,9 @@ paths:
               schema:
                 type: object
                 properties:
-                  token:
+                  message:
                     type: string
-                    example: jwt_token
+                    example: Signup successful
         '400':
           description: Signup failed
           content:
@@ -189,6 +167,8 @@ paths:
     put:
       summary: Update User Profile
       operationId: updateUserProfile
+      security:
+        - bearerAuth: []
       requestBody:
         description: User profile data to update
         required: true
@@ -224,6 +204,8 @@ paths:
     put:
       summary: Update User Preferences
       operationId: updateUserPreferences
+      security:
+        - bearerAuth: []
       requestBody:
         description: User preferences data to update
         required: true
