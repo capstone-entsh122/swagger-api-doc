@@ -121,6 +121,63 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
+    put:
+      summary: Update User Preferences
+      operationId: updateUserPreferences
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: User preferences data to update
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                motivation:
+                  type: string
+                  example: Lose weight
+                availableTime:
+                  type: integer
+                  example: 45
+                fitnessLevel:
+                  type: string
+                  example: good
+                placePreference:
+                  type: string
+                  example: outdoor
+                socialPreference:
+                  type: string
+                  example: with others
+                diseaseHistory:
+                  type: array
+                  items:
+                    type: string
+                  example: ["cardiovascular"]
+      responses:
+        '200':
+          description: Preferences updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Preferences updated successfully
+        '400':
+          description: Update failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Update failed
+                  error:
+                    type: string
+                    example: Invalid input data
   /api/users/profile:
     get:
       summary: Get User Profile
@@ -226,64 +283,6 @@ paths:
                   message:
                     type: string
                     example: Profile updated successfully
-        '400':
-          description: Update failed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Update failed
-                  error:
-                    type: string
-                    example: Invalid input data
-  /api/users/preferences:
-    put:
-      summary: Update User Preferences
-      operationId: updateUserPreferences
-      security:
-        - bearerAuth: []
-      requestBody:
-        description: User preferences data to update
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                motivation:
-                  type: string
-                  example: Lose weight
-                availableTime:
-                  type: integer
-                  example: 45
-                fitnessLevel:
-                  type: string
-                  example: good
-                placePreference:
-                  type: string
-                  example: outdoor
-                socialPreference:
-                  type: string
-                  example: with others
-                diseaseHistory:
-                  type: array
-                  items:
-                    type: string
-                  example: ["cardiovascular"]
-      responses:
-        '200':
-          description: Preferences updated successfully
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Preferences updated successfully
         '400':
           description: Update failed
           content:
