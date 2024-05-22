@@ -333,6 +333,50 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
+  /api/users/profile/photo:
+    post:
+      summary: Upload Profile Photo
+      operationId: uploadProfilePhoto
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: Profile photo to upload
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                profilePhoto:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Profile photo uploaded successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Profile photo uploaded successfully
+                  url:
+                    type: string
+                    example: http://example.com/photo.jpg
+        '400':
+          description: Upload failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Upload failed
+                  error:
+                    type: string
+                    example: Invalid input data
 components:
   securitySchemes:
     bearerAuth:
