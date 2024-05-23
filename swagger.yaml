@@ -203,9 +203,6 @@ paths:
                   displayName:
                     type: string
                     example: User Name
-                  photoUrl:
-                    type: string
-                    example: http://example.com/photo.jpg
                   gender:
                     type: string
                     example: male
@@ -265,9 +262,6 @@ paths:
                 displayName:
                   type: string
                   example: Updated Name
-                photoUrl:
-                  type: string
-                  example: http://example.com/newphoto.jpg
                 location:
                   type: string
                   example: New City, Country
@@ -326,6 +320,9 @@ paths:
                   message:
                     type: string
                     example: Profile photo uploaded successfully
+                  photoUrl:
+                    type: string
+                    example: http://example.com/newphoto.jpg
         '400':
           description: Photo upload failed
           content:
