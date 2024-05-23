@@ -326,9 +326,6 @@ paths:
                   message:
                     type: string
                     example: Profile photo uploaded successfully
-                  photoUrl:
-                    type: string
-                    example: http://example.com/newphoto.jpg
         '400':
           description: Photo upload failed
           content:
