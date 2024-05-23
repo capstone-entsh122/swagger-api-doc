@@ -438,6 +438,8 @@ paths:
     get:
       summary: Get all communities
       operationId: getAllCommunities
+       security:
+        - bearerAuth: []
       responses:
         '200':
           description: List of all communities
@@ -515,6 +517,8 @@ paths:
     get:
       summary: Get Your Communities
       operationId: GetYourCommunities
+      security:
+        - bearerAuth: []
       responses:
         '200':
           description: ListCommunities
@@ -589,6 +593,76 @@ paths:
                   message:
                     type: string
                     example: Communities upload failed
+                  error:
+                    type: string
+                    example: Invalid input data
+          delete:
+      summary: Delete Communities
+      operationId: deleteCommunities
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Communities deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Communities deleted successfully
+        '400':
+          description: Deletion failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Deletion failed
+                  error:
+                    type: string
+                    example: Invalid input data
+    put:
+      summary: Update Communities
+      operationId: updateCommunities
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: Communities data update
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+                  example: 'This is a post content.'
+                
+      responses:
+        '200':
+          description: Communities updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Communities updated successfully
+        '400':
+          description: Update failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Update failed
                   error:
                     type: string
                     example: Invalid input data
