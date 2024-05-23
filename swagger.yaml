@@ -410,6 +410,90 @@ paths:
                 image:
                   type: string
                   format: binary
+
+    /api/communities/posts:
+    get:
+      summary: Get Communities
+      operationId: GetCommunities
+      responses:
+        '200':
+          description: ListCommunities
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    postId:
+                      type: string
+                      example: post123
+                    content:
+                      type: string
+                      example: 'This is a post content.'
+                    author:
+                      type: string
+                      example: user123
+        '400':
+          description: Failed to Get Communities
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Failed to Get Communities
+                  error:
+                    type: string
+                    example: Invalid input data
+
+    post:
+      summary: New Communities
+      operationId: NewCommunities
+      requestBody:
+        description: Communities new
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                postId:
+                  type: string
+                  example: post123
+                content:
+                  type: string
+                  example: 'This is a post content.'
+                author:
+                  type: string
+                  example: user123
+      responses:
+        '201':
+          description: Communities uploaded successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Communities uploaded successfully
+        '400':
+          description: Communities upload failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Communities upload failed
+                  error:
+                    type: string
+                    example: Invalid input data
+
+                    
       responses:
         '200':
           description: Prediction successful
