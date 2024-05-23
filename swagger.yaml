@@ -434,8 +434,84 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
+  /api/community:
+    get:
+      summary: Get all communities
+      operationId: getAllCommunities
+      responses:
+        '200':
+          description: List of all communities
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  communitiesId:
+                    type: string
+                    example: community123
+                  name:
+                    type: string
+                    example: Community Name
+                  description:
+                    type: string
+                    example: Community Description
+                  cretor: 
+                    type: string
+                    example: Creator Name
+                  members: 
+                    type: string
+                    example: Member Name
+                  posts: 
+                    type: object
+                    properties:
+                      content: 
+                        type: string
+                        example: 'This is a post content'
+                      author:
+                        type: string
+                        example: Author Name
+                  events:
+                    type: object
+                    properties:
+                      name: 
+                        type: string
+                        example: Event Name
+                      description:
+                        type: string
+                        example: Event Descriiption
+                      creator:
+                        type: string
+                        example: creator Name
+                      communities:
+                        type: communityId
+                        example: community123
+                      startTime: 
+                        type:
+                        example:
+                      endTime:
+                        type:
+                        example:
+                      participants:
+                        type: string
+                        example: Name Participant
+                      points:
+                        type: integer
+                        example: 100
 
-  /api/communities/posts:
+        '400':
+          description: Failed to get communities
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Failed to get communities
+                  error:
+                    type: string
+                    example: Invalid input data
+  /api/community/posts:
     get:
       summary: Get Your Communities
       operationId: GetYourCommunities
@@ -454,10 +530,10 @@ paths:
                       example: post123
                     content:
                       type: string
-                      example: 'This is a post content.'
+                      example: 'This is a post content'
                     author:
                       type: string
-                      example: user123
+                      example: Author Name
         '400':
           description: Failed to Get Your Communities
           content:
