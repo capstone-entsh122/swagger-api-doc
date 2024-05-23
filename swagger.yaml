@@ -64,6 +64,8 @@ paths:
     post:
       summary: Set User Preferences
       operationId: setUserPreferences
+      security:
+        - bearerAuth: []
       requestBody:
         description: User preferences details
         required: true
@@ -293,6 +295,50 @@ paths:
                   message:
                     type: string
                     example: Update failed
+                  error:
+                    type: string
+                    example: Invalid input data
+  /api/users/profile/photo:
+    post:
+      summary: Upload Profile Photo
+      operationId: uploadProfilePhoto
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: Profile photo upload
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                photo:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Profile photo uploaded successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Profile photo uploaded successfully
+                  photoUrl:
+                    type: string
+                    example: http://example.com/newphoto.jpg
+        '400':
+          description: Photo upload failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Photo upload failed
                   error:
                     type: string
                     example: Invalid input data
