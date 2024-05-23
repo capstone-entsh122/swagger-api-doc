@@ -409,9 +409,33 @@ paths:
               properties:
                 image:
                   type: string
-                  format: binary
+                  format: binary        
+      responses:
+        '200':
+          description: Prediction successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  calories:
+                    type: number
+                    example: 250
+        '400':
+          description: Prediction failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Prediction failed
+                  error:
+                    type: string
+                    example: Invalid input data
 
-    /api/communities/posts:
+  /api/communities/posts:
     get:
       summary: Get Your Communities
       operationId: GetYourCommunities
@@ -493,31 +517,6 @@ paths:
                     type: string
                     example: Invalid input data
 
-                    
-      responses:
-        '200':
-          description: Prediction successful
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  calories:
-                    type: number
-                    example: 250
-        '400':
-          description: Prediction failed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Prediction failed
-                  error:
-                    type: string
-                    example: Invalid input data
 components:
   securitySchemes:
     bearerAuth:
