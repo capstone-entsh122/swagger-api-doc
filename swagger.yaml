@@ -547,7 +547,6 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-
     post:
       summary: New Communities
       operationId: NewCommunities
@@ -591,12 +590,10 @@ paths:
                     example: Communities upload failed
                   error:
                     type: string
-                    example: Invalid input data
-          delete:
+                    example: Invalid input data          
+    delete:
       summary: Delete Communities
       operationId: deleteCommunities
-      security:
-        - bearerAuth: []
       responses:
         '200':
           description: Communities deleted successfully
@@ -620,11 +617,10 @@ paths:
                     example: Deletion failed
                   error:
                     type: string
-                    example: Invalid input data
+                    example: Invalid input data       
     put:
       summary: Update Communities
       operationId: updateCommunities
-     
       requestBody:
         description: Communities data update
         required: true
@@ -636,7 +632,6 @@ paths:
                 content:
                   type: string
                   example: 'This is a post content.'
-                
       responses:
         '200':
           description: Communities updated successfully
