@@ -413,8 +413,8 @@ paths:
 
     /api/communities/posts:
     get:
-      summary: Get Communities
-      operationId: GetCommunities
+      summary: Get Your Communities
+      operationId: GetYourCommunities
       responses:
         '200':
           description: ListCommunities
@@ -435,7 +435,7 @@ paths:
                       type: string
                       example: user123
         '400':
-          description: Failed to Get Communities
+          description: Failed to Get Your Communities
           content:
             application/json:
               schema:
@@ -443,7 +443,7 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: Failed to Get Communities
+                    example: Failed to Get Your Communities
                   error:
                     type: string
                     example: Invalid input data
