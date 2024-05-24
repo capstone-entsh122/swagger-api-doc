@@ -794,6 +794,67 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
+  /api/community/posts/delete:
+    delete:
+      summary: Delete Communities
+      operationId: deleteCommunities
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Communities deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Communities deleted successfully
+        '400':
+          description: Deletion failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Deletion failed
+                  error:
+                    type: string
+                    example: Invalid input data
+  /api/community/events/delete:
+    delete:
+      summary: Delete Events
+      operationId: deleteEvents
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Events deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Events deleted successfully
+        '400':
+          description: Deletion failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Deletion failed
+                  error:
+                    type: string
+                    example: Invalid input data
+
 components:
   securitySchemes:
     bearerAuth:
