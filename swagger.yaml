@@ -630,6 +630,171 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
+    /api/community/events:
+    get:
+      summary: Get Events
+      operationId: GetEvents
+      responses:
+        '200':
+          description: ListEvents
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                      name: 
+                        type: string
+                        example: Event Name
+                      description:
+                        type: string
+                        example: Event Descriiption
+                      creator:
+                        type: string
+                        example: creator Name
+                      communities:
+                        type: communityId
+                        example: community123
+                      startTime: 
+                        type:
+                        example:
+                      endTime:
+                        type:
+                        example:
+                      participants:
+                        type: string
+                        example: Name Participant
+                      points:
+                        type: integer
+                        example: 100
+        '400':
+          description: Failed to Events
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Failed to Get Events
+                  error:
+                    type: string
+                    example: Invalid input data
+
+    post:
+      summary: New Events
+      operationId: NewEvents
+      requestBody:
+        description: Create Events
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                      name: 
+                        type: string
+                        example: Event Name
+                      description:
+                        type: string
+                        example: Event Descriiption
+                      creator:
+                        type: string
+                        example: creator Name
+                      communities:
+                        type: communityId
+                        example: community123
+                      startTime: 
+                        type:
+                        example:
+                      endTime:
+                        type:
+                        example:
+                      participants:
+                        type: string
+                        example: Name Participant
+                      points:
+                        type: integer
+                        example: 100
+                  
+      responses:
+        '201':
+          description: Events uploaded successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Events uploaded successfully
+        '400':
+          description: Events upload failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Events upload failed
+                  error:
+                    type: string
+                    example: Invalid input data
+    
+    put:
+      summary: Update Events
+      operationId: updateEvents
+      security:
+        - bearerAuth: []
+      requestBody:
+        description: Events data update
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                      name: 
+                        type: string
+                        example: Event Name
+                      description:
+                        type: string
+                        example: Event Descriiption
+                      startTime: 
+                        type:
+                        example:
+                      endTime:
+                        type:
+                        example:
+                      participants:
+                        type: string
+                        example: Name Participant                
+      responses:
+        '200':
+          description: Events updated successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Events updated successfully
+        '400':
+          description: Update failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Update failed
+                  error:
+                    type: string
+                    example: Invalid input data
 
 components:
   securitySchemes:
