@@ -744,7 +744,56 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-
+    get:
+      summary: Get Events
+      operationId: GetEvents
+      responses:
+        '200':
+          description: ListEvents
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                      name: 
+                        type: string
+                        example: Event Name
+                      description:
+                        type: string
+                        example: Event Descriiption
+                      creator:
+                        type: string
+                        example: creator Name
+                      communities:
+                        type: communityId
+                        example: community123
+                      startTime: 
+                        type:
+                        example:
+                      endTime:
+                        type:
+                        example:
+                      participants:
+                        type: string
+                        example: Name Participant
+                      points:
+                        type: integer
+                        example: 100
+        '400':
+          description: Failed to Events
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Failed to Get Events
+                  error:
+                    type: string
+                    example: Invalid input data
 components:
   securitySchemes:
     bearerAuth:
