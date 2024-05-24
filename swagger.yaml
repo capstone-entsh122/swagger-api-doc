@@ -630,7 +630,7 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-    /api/community/events:
+  /api/community/event:
     get:
       summary: Get Events
       operationId: GetEvents
