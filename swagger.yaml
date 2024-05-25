@@ -110,7 +110,7 @@ paths:
                     items:
                       type: string
                     example: ["Yoga", "Running", "Swimming"]
-       '400':
+        '400':
           description: Bad Request
           content:
             application/json:
