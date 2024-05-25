@@ -110,8 +110,8 @@ paths:
                     items:
                       type: string
                     example: ["Yoga", "Running", "Swimming"]
-        '400':
-          description: Setting preferences failed
+       '400':
+          description: Bad Request
           content:
             application/json:
               schema:
@@ -119,10 +119,20 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: Setting preferences failed
+                    example: Invalid input data
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
                   error:
                     type: string
-                    example: Invalid input data
+                    example: Error updating preference
     put:
       summary: Update User Preferences
       operationId: updateUserPreferences
@@ -168,7 +178,7 @@ paths:
                     type: string
                     example: Preferences updated successfully
         '400':
-          description: Update failed
+          description: Bad Request
           content:
             application/json:
               schema:
@@ -176,10 +186,20 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: Update failed
+                    example: Invalid input data
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
                   error:
                     type: string
-                    example: Invalid input data
+                    example: Error updating preference
   /api/users/profile:
     get:
       summary: Get User Profile
@@ -246,6 +266,39 @@ paths:
                   points:
                     type: integer
                     example: 100
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Unauthorized
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: User not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
+                  error:
+                    type: string
+                    example: Error getting user details
     put:
       summary: Update User Profile
       operationId: updateUserProfile
@@ -280,7 +333,7 @@ paths:
                     type: string
                     example: Profile updated successfully
         '400':
-          description: Update failed
+          description: Bad Request
           content:
             application/json:
               schema:
@@ -288,10 +341,30 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: Update failed
+                    example: Invalid input data
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Unauthorized
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
                   error:
                     type: string
-                    example: Invalid input data
+                    example: Error updating user details
   /api/users/profile/photo:
     post:
       summary: Upload Profile Photo
@@ -321,7 +394,7 @@ paths:
                     type: string
                     example: Profile photo uploaded successfully
         '400':
-          description: Photo upload failed
+          description: Bad Request
           content:
             application/json:
               schema:
@@ -329,10 +402,30 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: Photo upload failed
+                    example: No file uploaded
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Unauthorized
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
                   error:
                     type: string
-                    example: No file uploaded
+                    example: Error uploading profile photo
     get:
       summary: Get Profile Photo
       operationId: getProfilePhoto
@@ -349,8 +442,8 @@ paths:
                   profilePhotoUrl:
                     type: string
                     example: http://example.com/photo.jpg
-        '400':
-          description: Failed to retrieve profile photo URL
+        '401':
+          description: Unauthorized
           content:
             application/json:
               schema:
@@ -358,10 +451,30 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: Failed to retrieve profile photo URL
+                    example: Unauthorized
+        '404':
+          description: Profile photo not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Profile photo not found
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
                   error:
                     type: string
-                    example: Invalid input data
+                    example: Error retrieving profile photo URL
   /api/users/delete:
     delete:
       summary: Delete User Account
@@ -379,8 +492,8 @@ paths:
                   message:
                     type: string
                     example: User account deleted successfully
-        '400':
-          description: Deletion failed
+        '401':
+          description: Unauthorized
           content:
             application/json:
               schema:
@@ -388,10 +501,20 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: Deletion failed
+                    example: Unauthorized
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
                   error:
                     type: string
-                    example: Invalid input data
+                    example: Error deleting user account
   /api/food/calories:
     post:
       summary: Predict Food Calories
