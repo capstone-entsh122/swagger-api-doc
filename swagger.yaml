@@ -1120,10 +1120,6 @@ paths:
 components:
   securitySchemes:
     bearerAuth:
-      host: petstore.swagger.io
-      basePath: /v2
-      schemes:
-        - https
-      
+      type: http
       scheme: bearer
       bearerFormat: JWT
