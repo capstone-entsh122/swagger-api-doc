@@ -1124,7 +1124,7 @@ paths:
                     example: Invalid input data
   /api/community/posts/reply-posts:
     get:
-      summary: Get Your Reply ReplyPost
+      summary: Get Your Reply Post
       operationId: GetYourPost
       responses:
         '200':
