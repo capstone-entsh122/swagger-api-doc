@@ -94,6 +94,12 @@ paths:
                   items:
                     type: string
                   example: ["hypertension"]
+                weight: 
+                  type: integer
+                  example: 50
+                height:
+                  type: integer
+                  example: 160
       responses:
         '200':
           description: Preferences set successfully
