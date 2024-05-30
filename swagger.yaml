@@ -560,13 +560,13 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-  /api/communities/{id}:
-    get:
-      summary: Get all communities
-      operationId: getAllCommunities
+  /api/communities:
+    post:
+      summary: Create communities
+      operationId: CreateCommunities
       responses:
         '200':
-          description: List of all communities
+          description: Create Your communities
           content:
             application/json:
               schema:
@@ -624,7 +624,7 @@ paths:
                         type: integer
                         example: 100
         '400':
-          description: Failed to get communities
+          description: Failed to create communities
           content:
             application/json:
               schema:
@@ -632,7 +632,7 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: Failed to get communities
+                    example: Failed to create communities
                   error:
                     type: string
                     example: Invalid input data
