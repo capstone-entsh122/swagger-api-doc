@@ -818,7 +818,49 @@ paths:
                         points: 100
         '404':
           description: Community not found
-
+  /api/users/join-community:
+    post:
+      summary: Join community
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                communitiesId:
+                  type: string
+                  example: community123
+      responses:
+        '200':
+          description: Successfully joined the community
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Successfully joined the community
+                  userId:
+                    type: string
+                    example: user123
+                  communitiesId:
+                    type: string
+                    example: community123
+        '400':
+          description: Failed to join the community
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Failed to join the community
+                  error:
+                    type: string
+                    example: Invalid input data
   /api/communities/posts:
     get:
       summary: Get Your Communities
