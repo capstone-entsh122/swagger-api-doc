@@ -636,12 +636,13 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-   /api/communities/{id}:
+  paths:
+  /api/communities/{id}:
     get:
       summary: Get community by ID
       parameters:
-        - in: /api/communities/
-          name: communitiesId
+        - in: path
+          name: id
           required: true
           description: ID of the community to retrieve
           schema:
@@ -649,8 +650,84 @@ paths:
       responses:
         '200':
           description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  communitiesId:
+                    type: string
+                    example: community123
+                  name:
+                    type: string
+                    example: Community Name
+                  description:
+                    type: string
+                    example: Community Description
+                  creator: 
+                    type: string
+                    example: Creator Name
+                  members: 
+                    type: array
+                    items:
+                      type: string
+                    example: ["Member1", "Member2"]
+                  posts: 
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        content: 
+                          type: string
+                          example: 'This is a post content'
+                        author:
+                          type: string
+                          example: Author Name
+                    example:
+                      - content: 'This is a post content'
+                        author: Author Name
+                  events:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        name: 
+                          type: string
+                          example: Event Name
+                        description:
+                          type: string
+                          example: Event Description
+                        creator:
+                          type: string
+                          example: Creator Name
+                        communities:
+                          type: string
+                          example: community123
+                        startTime: 
+                          type: string
+                          example: "2023-05-25T15:00:00Z"
+                        endTime:
+                          type: string
+                          example: "2023-05-25T16:00:00Z"
+                        participants:
+                          type: array
+                          items:
+                            type: string
+                          example: ["Participant1", "Participant2"]
+                        points:
+                          type: integer
+                          example: 100
+                    example:
+                      - name: Event Name
+                        description: Event Description
+                        creator: Creator Name
+                        startTime: "2023-05-25T15:00:00Z"
+                        endTime: "2023-05-25T16:00:00Z"
+                        participants: ["Participant1", "Participant2"]
+                        points: 100
         '404':
           description: Community not found
+
   /api/communities/posts:
     get:
       summary: Get Your Communities
