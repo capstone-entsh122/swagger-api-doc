@@ -636,6 +636,21 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
+   /api/communities/{id}:
+    get:
+      summary: Get community by ID
+      parameters:
+        - in: /api/communities/
+          name: communitiesId
+          required: true
+          description: ID of the community to retrieve
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Successful response
+        '404':
+          description: Community not found
   /api/communities/posts:
     get:
       summary: Get Your Communities
