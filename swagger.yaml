@@ -560,7 +560,7 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-  /api/communities:
+  /api/communities/:id
     get:
       summary: Get all communities
       operationId: getAllCommunities
