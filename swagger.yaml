@@ -636,7 +636,7 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-  /api/community/posts:
+  /api/communities/posts:
     get:
       summary: Get Your Communities
       operationId: GetYourCommunities
@@ -754,7 +754,7 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-  /api/community/posts/delete:
+  /api/communities/posts/delete:
     delete:
       summary: Delete a Post
       operationId: deletePost
@@ -784,7 +784,7 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-  /api/community/event:
+  /api/communities/event:
     post:
       summary: Create a New Event
       operationId: createNewEvent
@@ -946,7 +946,7 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-  /api/community/events/delete:
+  /api/communities/events/delete:
     delete:
       summary: Delete an Event
       operationId: deleteEvent
@@ -1122,7 +1122,7 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-  /api/community/posts/reply-posts:
+  /api/communities/posts/reply-posts:
     get:
       summary: Get Your Reply Post
       operationId: GetYourPost
@@ -1240,7 +1240,7 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-  /api/community/posts/reply-posts/delete:
+  /api/communities/posts/reply-posts/delete:
     delete:
       summary: Delete a ReplyPost
       operationId: deleteReplyPost
