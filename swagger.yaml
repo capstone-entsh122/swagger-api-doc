@@ -1849,6 +1849,72 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
+  /api/communities/{communityId}/events/{eventId}/leave:
+    post:
+      summary: Removes the authenticated user from an event within a specific community
+      operationId: leaveFromEvent
+      requestBody:
+        description: Leave From Event
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: object
+                properties:
+      responses:
+        '200':
+          description: User successfully removed from the event
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: User successfully removed from the event
+                  userId:
+                    type: string
+                    description: ID of the user who left the event
+                    example: user123
+                  eventId:
+                    type: string
+                    description: ID of the event the user left
+                    example: event123
+        '400':
+          description: Failed to leave the event
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Failed to leave the event
+                  error:
+                    type: string
+                    example: Invalid input data
+        '401':
+          description: Unauthorized - user not authenticated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Unauthorized - user not authenticated
+        '404':
+          description: Event or community not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Event or community not found
 
 components:
   securitySchemes:
