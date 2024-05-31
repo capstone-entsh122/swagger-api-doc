@@ -1863,6 +1863,17 @@ paths:
               items:
                 type: object
                 properties:
+                  message:
+                    type: string
+                    example: User successfully leave to the event
+                  userId:
+                    type: string
+                    description: ID of the user who leave the event
+                    example: user123
+                  eventId:
+                    type: string
+                    description: ID of the event the user leaved
+                    example: event123
       responses:
         '200':
           description: User successfully removed from the event
