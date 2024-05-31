@@ -1996,6 +1996,159 @@ paths:
                   message:
                     type: string
                     example: Event or community not found
+  /api/communities/{communityId}/events/{eventId}:
+    get:
+      summary: Retrieves an event by its ID within a specific community
+      parameters:
+        - in: path
+          name: communityId
+          required: true
+          description: ID of the community
+          schema:
+            type: string
+            example: community123
+        - in: path
+          name: eventId
+          required: true
+          description: ID of the event
+          schema:
+            type: string
+            example: event123
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  eventId:
+                    type: string
+                    example: event123
+                  name:
+                    type: string
+                    example: Event Name
+                  description:
+                    type: string
+                    example: Event Description
+                  creator:
+                    type: string
+                    example: Creator Name
+                  communityId:
+                    type: string
+                    example: community123
+                  startTime:
+                    type: string
+                    example: "2023-05-25T15:00:00Z"
+                  endTime:
+                    type: string
+                    example: "2023-05-25T16:00:00Z"
+                  participants:
+                    type: array
+                    items:
+                      type: string
+                    example: ["Participant1", "Participant2"]
+                  points:
+                    type: integer
+                    example: 100
+        '404':
+          description: Event or community not found
+        '401':
+          description: Unauthorized - user not authenticated
+    put:
+      summary: Updates an event by its ID within a specific community
+      parameters:
+        - in: path
+          name: communityId
+          required: true
+          description: ID of the community
+          schema:
+            type: string
+            example: community123
+        - in: path
+          name: eventId
+          required: true
+          description: ID of the event
+          schema:
+            type: string
+            example: event123
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: Event Name
+                description:
+                  type: string
+                  example: Event Description
+                startTime:
+                  type: string
+                  example: "2023-05-25T15:00:00Z"
+                endTime:
+                  type: string
+                  example: "2023-05-25T16:00:00Z"
+                points:
+                  type: integer
+                  example: 100
+      responses:
+        '200':
+          description: Event successfully updated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Event successfully updated
+                  eventId:
+                    type: string
+                    example: event123
+        '400':
+          description: Invalid input data
+        '401':
+          description: Unauthorized - user not authenticated
+        '404':
+          description: Event or community not found
+    delete:
+      summary: Deletes an event by its ID within a specific community
+      parameters:
+        - in: path
+          name: communityId
+          required: true
+          description: ID of the community
+          schema:
+            type: string
+            example: community123
+        - in: path
+          name: eventId
+          required: true
+          description: ID of the event
+          schema:
+            type: string
+            example: event123
+      responses:
+        '200':
+          description: Event successfully deleted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Event successfully deleted
+                  eventId:
+                    type: string
+                    example: event123
+        '401':
+          description: Unauthorized - user not authenticated
+        '404':
+          description: Event or community not found
 components:
   securitySchemes:
     bearerAuth:
