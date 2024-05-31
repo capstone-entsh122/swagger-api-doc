@@ -1915,7 +1915,76 @@ paths:
                   message:
                     type: string
                     example: Event or community not found
-
+  /api/communities/{communityId}/events/{eventId}/join:
+    post:
+      summary: Adds the authenticated user to an event within a specific community
+      parameters:
+        - in: path
+          name: communityId
+          required: true
+          description: ID of the community
+          schema:
+            type: string
+            example: community123
+        - in: path
+          name: eventId
+          required: true
+          description: ID of the event
+          schema:
+            type: string
+            example: event123
+      responses:
+        '200':
+          description: User successfully added to the event
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: User successfully added to the event
+                  userId:
+                    type: string
+                    description: ID of the user who joined the event
+                    example: user123
+                  eventId:
+                    type: string
+                    description: ID of the event the user joined
+                    example: event123
+        '400':
+          description: Failed to join the event
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Failed to join the event
+                  error:
+                    type: string
+                    example: Invalid input data
+        '401':
+          description: Unauthorized - user not authenticated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Unauthorized - user not authenticated
+        '404':
+          description: Event or community not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Event or community not found
 components:
   securitySchemes:
     bearerAuth:
