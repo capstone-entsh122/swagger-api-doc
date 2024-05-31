@@ -1363,7 +1363,7 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-  /api/communities/{communityId}/event:
+  /api/communities/{communityId}/events:
     post:
       summary: Create a New Event
       operationId: createNewEvent
