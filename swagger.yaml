@@ -1215,7 +1215,7 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-  /api/communities/posts:
+  /api/communities/{communityId}/posts:
     get:
       summary: Get Your Communities
       operationId: GetYourCommunities
