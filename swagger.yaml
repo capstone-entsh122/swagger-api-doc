@@ -560,6 +560,99 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
+  /api/users/communities:
+    get:
+      summary: Lists all communities joined by user
+      responses:
+        '200':
+          description: A list of communities joined by user
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    communityId:
+                      type: string
+                      example: community123
+                    name:
+                      type: string
+                      example: Community Name
+                    description:
+                      type: string
+                      example: Community Description
+                    creator: 
+                      type: string
+                      example: Creator Name
+                    members: 
+                      type: array
+                      items:
+                        type: string
+                      example: ["Member1", "Member2"]
+                    posts: 
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          content: 
+                            type: string
+                            example: 'This is a post content'
+                          author:
+                            type: string
+                            example: Author Name
+                      example:
+                        - content: 'This is a post content'
+                          author: Author Name
+                    events:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          name: 
+                            type: string
+                            example: Event Name
+                          description:
+                            type: string
+                            example: Event Description
+                          creator:
+                            type: string
+                            example: Creator Name
+                          communities:
+                            type: string
+                            example: community123
+                          startTime: 
+                            type: string
+                            example: "2023-05-25T15:00:00Z"
+                          endTime:
+                            type: string
+                            example: "2023-05-25T16:00:00Z"
+                          participants:
+                            type: array
+                            items:
+                              type: string
+                            example: ["Participant1", "Participant2"]
+                          points:
+                            type: integer
+                            example: 100
+                      example:
+                        - name: Event Name
+                          description: Event Description
+                          creator: Creator Name
+                          startTime: "2023-05-25T15:00:00Z"
+                          endTime: "2023-05-25T16:00:00Z"
+                          participants: ["Participant1", "Participant2"]
+                          points: 100
+        '401':
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Unauthorized
   /api/communities:
     post:
       summary: Create communities
