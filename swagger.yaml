@@ -1333,7 +1333,6 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-  /api/communities/posts/delete:
     delete:
       summary: Delete a Post
       operationId: deletePost
@@ -1525,7 +1524,6 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-  /api/communities/events/delete:
     delete:
       summary: Delete an Event
       operationId: deleteEvent
