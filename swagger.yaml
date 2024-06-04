@@ -1251,7 +1251,7 @@ paths:
                     example: Failed to join the community
                   error:
                     type: string
-                    example: Invalid input data                
+                    example: Invalid input data
     delete:
       summary: Leave community
       operationId: leaveCommunity
