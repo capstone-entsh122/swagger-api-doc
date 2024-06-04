@@ -1252,6 +1252,46 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
+    delete:
+      summary: Leave community
+      operationId: leaveCommunity
+      parameters:
+        - in: path
+          name: communityId
+          required: true
+          schema:
+            type: string
+          description: Id of the community to leave
+      responses:
+        '200':
+          description: Successfully left the community
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Successfully left the community
+                  userId:
+                    type: string
+                    example: user123
+                  communityId:
+                    type: string
+                    example: community123
+        '404':
+          description: Community or membership not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Community or membership not found
+                  error:
+                    type: string
+                    example: Not Found
   /api/communities/{communityId}/posts:
     get:
       summary: Get Your Communities
