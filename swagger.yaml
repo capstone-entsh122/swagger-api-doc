@@ -60,6 +60,47 @@ paths:
                   error:
                     type: string
                     example: Error during user signup
+  /api/users/signin:
+    post:
+      summary: User Signin
+      operationId: userSignin
+      requestBody:
+        description: User signin details
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  example: user@example.com
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Signin successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Signin successful
+        '500':
+          description: Signin failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Internal Server Error
+                  error:
+                    type: string
+                    example: Error during user signin
   /api/users/preferences:
     post:
       summary: Set User Preferences
