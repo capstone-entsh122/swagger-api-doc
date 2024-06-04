@@ -1287,6 +1287,56 @@ paths:
                   error:
                     type: string
                     example: Not Found
+  /api/users/memberships:
+    get:
+      summary: Get list of joined communities
+      operationId: getJoinedCommunities
+      parameters:
+        - in: header
+          name: userId
+          required: true
+          schema:
+            type: string
+          description: Id of the user to get joined communities for
+      responses:
+        '200':
+          description: List of joined communities
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  userId:
+                    type: string
+                    example: user123
+                  communities:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        communityId:
+                          type: string
+                          example: community123
+                        communityName:
+                          type: string
+                          example: Community Name
+                        joined_at:
+                          type: string
+                          format: date-time
+                          example: '2024-01-15T08:00:00Z'
+        '404':
+          description: User not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: User not found
+                  error:
+                    type: string
+                    example: Not Found
   /api/communities/{communityId}/posts:
     get:
       summary: Get Your Communities
