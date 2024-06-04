@@ -2235,15 +2235,16 @@ paths:
           description: Unauthorized - user not authenticated
         '404':
           description: Event or community not found
-/api/communities/{id}/members:
+  /api/communities/{id}/members:
     get:
       summary: List all members of a specific community by its ID
+      operationId: listCommunityMembers
       parameters:
         - in: path
           name: id
           required: true
           schema:
-            type: integer
+            type: string
           description: Id of the community
       responses:
         '200':
@@ -2263,6 +2264,7 @@ paths:
                       properties:
                         userId:
                           type: string
+                          example: user123
                         displayName:
                           type: string
                           example: User Name
@@ -2281,6 +2283,7 @@ paths:
                 properties:
                   error:
                     type: string
+                    example: Community not found
 components:
   securitySchemes:
     bearerAuth:
