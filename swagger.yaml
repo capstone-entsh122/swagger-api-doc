@@ -1403,6 +1403,53 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
+  /api/communities/{communityId}/posts/{postId}:
+    get:
+      summary: Retrieves a post by its ID within a specific community
+      operationId: GetPostById
+      parameters:
+        - in: path
+          name: communityId
+          required: true
+          schema:
+            type: string
+          description: ID of the community
+        - in: path
+          name: postId
+          required: true
+          schema:
+            type: string
+          description: ID of the post
+      responses:
+        '200':
+          description: The post with the given ID
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  postId:
+                    type: string
+                    example: post123
+                  content:
+                    type: string
+                    example: 'This is a post content'
+                  author:
+                    type: string
+                    example: 'Author Name'
+        '404':
+          description: Post not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: 'Post not found'
+                  error:
+                    type: string
+                    example: 'No post with the given ID found in the specified community'
   /api/communities/{communityId}/events:
     post:
       summary: Create a New Event
@@ -2188,6 +2235,52 @@ paths:
           description: Unauthorized - user not authenticated
         '404':
           description: Event or community not found
+/api/communities/{id}/members:
+    get:
+      summary: List all members of a specific community by its ID
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+          description: Id of the community
+      responses:
+        '200':
+          description: List of members
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  communityId:
+                    type: string
+                    example: community123
+                  members:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        userId:
+                          type: string
+                        displayName:
+                          type: string
+                          example: User Name
+                        email:
+                          type: string
+                          example: user@example.com
+                        joined_at:
+                          type: string
+                          format: date-time
+        '404':
+          description: Community not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
 components:
   securitySchemes:
     bearerAuth:
