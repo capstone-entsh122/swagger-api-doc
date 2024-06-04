@@ -1207,7 +1207,7 @@ paths:
                   error:
                     type: string
                     example: Invalid input data  
-  /api/users/memberships/{communityId}:  
+  /api/users/memberships/{communityId}:
     put:
       summary: Join community
       operationId: joinCommunity
@@ -1221,7 +1221,7 @@ paths:
               properties:
                 communityId:
                   type: string
-                  example: community123                 
+                  example: community123
       responses:
         '200':
           description: Successfully joined the community
