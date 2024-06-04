@@ -30,12 +30,6 @@ paths:
                 gender:
                   type: string
                   example: male
-                age:
-                  type: integer
-                  example: 25
-                equipment:
-                  type: string
-                  example: none
       responses:
         '200':
           description: Signup successful
