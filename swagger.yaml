@@ -1251,17 +1251,12 @@ paths:
                     example: Failed to join the community
                   error:
                     type: string
-                    example: Invalid input data
+                    example: Invalid input data                
     delete:
       summary: Leave community
       operationId: leaveCommunity
-      parameters:
-        - in: path
-          name: communityId
-          required: true
-          schema:
-            type: string
-          description: Id of the community to leave
+       security:
+        - bearerAuth: []
       responses:
         '200':
           description: Successfully left the community
