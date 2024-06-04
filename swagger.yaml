@@ -2274,6 +2274,7 @@ paths:
                         joined_at:
                           type: string
                           format: date-time
+                          example: '2024-01-15T08:00:00Z'
         '404':
           description: Community not found
           content:
