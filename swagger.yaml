@@ -1084,7 +1084,7 @@ paths:
             schema:
               type: object
               properties:
-                communitiesId:
+                communityId:
                     type: string
                     example: community123
       responses:
@@ -1207,10 +1207,12 @@ paths:
                   error:
                     type: string
                     example: Invalid input data  
-  /api/users/join-community:
-    post:
+  /api/users/memberships/{communityId}:  
+    put:
       summary: Join community
+      operationId: joinCommunity
       requestBody:
+      description: Join Community
         required: true
         content:
           application/json:
