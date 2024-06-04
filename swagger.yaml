@@ -1255,7 +1255,7 @@ paths:
     delete:
       summary: Leave community
       operationId: leaveCommunity
-       security:
+      security:
         - bearerAuth: []
       responses:
         '200':
