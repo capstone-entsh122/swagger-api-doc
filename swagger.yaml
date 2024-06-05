@@ -1600,9 +1600,9 @@ paths:
             schema:
               type: object
               properties:
-                eventsId:
+                eventId:
                   type: string
-                  example: events123
+                  example: event123
                 name: 
                   type: string
                   example: Event Name
@@ -1642,7 +1642,7 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-    /api/communities/{communityId}/events/{eventsId}:
+    /api/communities/{communityId}/events/{eventId}:
     get:
       summary: Get Events
       operationId: getEvents
