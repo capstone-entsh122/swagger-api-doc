@@ -1464,6 +1464,9 @@ paths:
                   message:
                     type: string
                     example: Post deleted successfully
+                  postId:
+                    type: string
+                    example: post123
         '400':
           description: Deletion failed
           content:
