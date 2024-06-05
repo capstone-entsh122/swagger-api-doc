@@ -1219,9 +1219,6 @@ paths:
             schema:
               type: object
               properties:
-                communityId:
-                  type: string
-                  example: community123
       responses:
         '200':
           description: Successfully joined the community
