@@ -1313,7 +1313,7 @@ paths:
                         communityName:
                           type: string
                           example: Community Name
-                        joined_at:
+                        joinedAt:
                           type: string
                           format: date-time
                           example: '2024-01-15T08:00:00Z'
@@ -2351,7 +2351,7 @@ paths:
                         email:
                           type: string
                           example: user@example.com
-                        joined_at:
+                        joinedAt:
                           type: string
                           format: date-time
                           example: '2024-01-15T08:00:00Z'
