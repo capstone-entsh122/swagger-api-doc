@@ -1220,8 +1220,8 @@ paths:
               type: object
               properties:
               userId:
-                  type: string
-                  example: user123
+                type: string
+                example: user123
       responses:
         '200':
           description: Successfully joined the community
