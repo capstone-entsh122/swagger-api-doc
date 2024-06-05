@@ -1377,9 +1377,6 @@ paths:
             schema:
               type: object
               properties:
-                postId:
-                  type: string
-                  example: post123
                 content:
                   type: string
                   example: 'This is a post content.'
@@ -1421,6 +1418,9 @@ paths:
             schema:
               type: object
               properties:
+                postId:
+                  type: string
+                  example: post123
                 content:
                   type: string
                   example: 'This is a post content.'
