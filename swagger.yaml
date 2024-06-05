@@ -1642,7 +1642,7 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-    /api/communities/{communityId}/events/{eventId}:
+  /api/communities/{communityId}/events/{eventId}:
     get:
       summary: Get Events
       operationId: getEvents
