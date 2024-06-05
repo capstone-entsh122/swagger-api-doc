@@ -1600,6 +1600,9 @@ paths:
             schema:
               type: object
               properties:
+                eventsId:
+                  type: string
+                  example: events123
                 name: 
                   type: string
                   example: Event Name
@@ -1639,6 +1642,7 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
+    /api/communities/{communityId}/events/{eventsId}:
     get:
       summary: Get Events
       operationId: getEvents
@@ -1718,7 +1722,7 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-  /api/sportplan:
+  /api/sportplan/{planId}:
     get:
       summary: Get Your SportPlan
       operationId: getYourSportPlan
@@ -1771,6 +1775,36 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
+    delete:
+      summary: Delete a SportPlan
+      operationId: deleteSportPlan
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: Sport plan deleted successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Sport plan deleted successfully
+        '400':
+          description: Deletion failed
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: Deletion failed
+                  error:
+                    type: string
+                    example: Invalid input data
+  /api/sportplan/:
     post:
       summary: Create a New SportPlan
       operationId: createNewSportPlan
@@ -1831,36 +1865,6 @@ paths:
                   message:
                     type: string
                     example: Sport plan creation failed
-                  error:
-                    type: string
-                    example: Invalid input data
-  /api/sportplan/delete:
-    delete:
-      summary: Delete a SportPlan
-      operationId: deleteSportPlan
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Sport plan deleted successfully
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Sport plan deleted successfully
-        '400':
-          description: Deletion failed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Deletion failed
                   error:
                     type: string
                     example: Invalid input data
