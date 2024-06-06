@@ -1745,69 +1745,6 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-    put:
-      summary: Update Your Sport Plan
-      operationId: updateYourSportPlan
-      security:
-        - bearerAuth: []
-      requestBody:
-        description: Update Your Sport Plan
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                name:
-                  type: string
-                  example: Plan1
-                description:
-                  type: string
-                  example: My Sport Plan
-                sportType:
-                  type: string
-                  example: mysporttype
-                difficultyLevel:
-                  type: string
-                  example: difficult
-                recommendedDuration:
-                  type: integer
-                  example: 15
-                steps: 
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      stepNum:
-                        type: integer
-                        example: 1
-                      instruction:
-                        type: string
-                        example: first instruction
-        responses:
-        '200':
-          description: Sport Plan updated successfully
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Sport Plan updated successfully
-        '400':
-          description: Update failed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Update failed
-                  error:
-                    type: string
-                    example: Invalid input data
     delete:
       summary: Delete a SportPlan
       operationId: deleteSportPlan
