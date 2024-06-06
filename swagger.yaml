@@ -1692,35 +1692,6 @@ paths:
                   error:
                     type: string
                     example: Invalid input data
-    delete:
-      summary: Delete an Event
-      operationId: deleteEvent
-      security:
-        - bearerAuth: []
-      responses:
-        '200':
-          description: Event deleted successfully
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Event deleted successfully
-        '400':
-          description: Deletion failed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Deletion failed
-                  error:
-                    type: string
-                    example: Invalid input data
   /api/sportplan/{planId}:
     get:
       summary: Get Your SportPlan
