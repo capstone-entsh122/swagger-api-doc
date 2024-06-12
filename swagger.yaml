@@ -27,9 +27,6 @@ paths:
                 displayName:
                   type: string
                   example: User Name
-                gender:
-                  type: string
-                  example: male
       responses:
         '200':
           description: Signup successful
