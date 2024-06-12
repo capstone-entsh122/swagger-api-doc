@@ -51,47 +51,6 @@ paths:
                   error:
                     type: string
                     example: Error during user signup
-  /api/users/signin:
-    post:
-      summary: User Signin
-      operationId: userSignin
-      requestBody:
-        description: User signin details
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                email:
-                  type: string
-                  example: user@example.com
-                password:
-                  type: string
-      responses:
-        '200':
-          description: Signin successful
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Signin successful
-        '500':
-          description: Signin failed
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  message:
-                    type: string
-                    example: Internal Server Error
-                  error:
-                    type: string
-                    example: Error during user signin
   /api/users/preferences:
     post:
       summary: Set User Preferences
@@ -106,6 +65,12 @@ paths:
             schema:
               type: object
               properties:
+                gender:
+                  type: string
+                age:
+                  type: number
+                equipment:
+                  type: string
                 motivation:
                   type: string
                   example: Get fit
@@ -184,6 +149,12 @@ paths:
             schema:
               type: object
               properties:
+                gender:
+                  type: string
+                age:
+                  type: number
+                equipment:
+                  type: string
                 motivation:
                   type: string
                   example: Lose weight
@@ -355,10 +326,9 @@ paths:
                   example: Updated Name
                 location:
                   type: string
-                  example: New City, Country
-                equipment:
+                  example: {latitude, longitude}
+                email:
                   type: string
-                  example: basic
       responses:
         '200':
           description: Profile updated successfully
@@ -553,7 +523,7 @@ paths:
                   error:
                     type: string
                     example: Error deleting user account
-  /api/food/calories:
+  /api/classify:
     post:
       summary: Predict Food Calories
       operationId: predictFoodCalories
@@ -576,9 +546,11 @@ paths:
               schema:
                 type: object
                 properties:
-                  calories:
-                    type: number
-                    example: 250
+                  label:
+                    type: string
+                  nutrition:
+                    type: object
+                    example: {Ukuran Porsi: 100g Kalori: 130 Protein: 20 Lemak: 10 Karbohidrat: 30 Serat: 10 }
         '400':
           description: Prediction failed
           content:
