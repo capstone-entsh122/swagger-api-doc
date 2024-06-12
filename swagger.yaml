@@ -550,7 +550,7 @@ paths:
                     type: string
                   nutrition:
                     type: object
-                    example: {Ukuran Porsi: 100g Kalori: 130 Protein: 20 Lemak: 10 Karbohidrat: 30 Serat: 10 }
+                    example: {Ukuran Porsi: 100g, Kalori: 130, Protein: 20, Lemak: 10, Karbohidrat: 30, Serat: 10 }
         '400':
           description: Prediction failed
           content:
