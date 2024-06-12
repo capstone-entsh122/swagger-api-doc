@@ -38,6 +38,8 @@ paths:
                   message:
                     type: string
                     example: Signup successful
+                  error: null
+                  data: {email: 'user@example.com', displayName: 'user Name',  points: 0, joinedCommunities: [], dailyCalories: 0}
         '500':
           description: Signup failed
           content:
@@ -223,6 +225,11 @@ paths:
               schema:
                 type: object
                 properties:
+                  message: success
+                  error: null
+                  data: {
+                  
+                  }
                   userId:
                     type: string
                     example: user123
