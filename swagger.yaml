@@ -557,7 +557,7 @@ paths:
                     type: string
                   nutrition:
                     type: object
-                    example: {Ukuran Porsi: 100g, Kalori: 130, Protein: 20, Lemak: 10, Karbohidrat: 30, Serat: 10 }
+                    example: {Porsi: 100g, Kalori: 130, Protein: 20, Lemak: 10, Karbohidrat: 30, Serat: 10 }
         '400':
           description: Prediction failed
           content:
@@ -585,9 +585,9 @@ paths:
                   message: 
                     type: string
                     example: Calories updated successfully
-        '400':
-          description: Saved calories
-          content:
+         '400':
+           description: Saved calories
+           content:
             application/json:
               schema:
                 type: object
@@ -595,8 +595,6 @@ paths:
                   message: 
                     type: string
                     example: Bad Request: Missing calories value
-          
-              
   /api/users/communities:
     get:
       summary: Lists all communities joined by user
