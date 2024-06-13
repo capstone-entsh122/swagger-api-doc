@@ -596,11 +596,11 @@ paths:
               schema:
                 type: object
                 properties:
-                  message: 
+                  message:
                     type: string
                     example: Calories updated successfully
         '400':
-          description: Saved Calories
+          description: Bad Request: Missing calories value
           content:
             application/json:
               schema:
