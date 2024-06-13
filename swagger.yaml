@@ -600,7 +600,7 @@ paths:
                     type: string
                     example: Calories updated successfully
         '400':
-          description: Bad Request: Missing calories value
+          description: Saved Calories
           content:
             application/json:
               schema:
