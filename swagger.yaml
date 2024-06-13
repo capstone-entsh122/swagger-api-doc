@@ -585,9 +585,9 @@ paths:
                   message: 
                     type: string
                     example: Calories updated successfully
-         '400':
-           description: Saved calories
-           content:
+        '400':
+          description: Saved calories
+          content:
             application/json:
               schema:
                 type: object
