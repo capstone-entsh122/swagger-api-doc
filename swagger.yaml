@@ -600,7 +600,7 @@ paths:
                     type: string
                     example: Calories updated successfully
         '400':
-          description: Bad Request Missing calories value
+          description: Bad Request: Missing calories value
           content:
             application/json:
               schema:
@@ -608,7 +608,7 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: {Bad Request: Missing calories value}
+                    example: Bad Request: Missing calories value
   /api/users/communities:
     get:
       summary: Lists all communities joined by user
