@@ -586,13 +586,13 @@ paths:
                     type: string
                     example: Calories updated successfully
         '400':
-          description: Saved calories
+          description: Save Calories
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  message: 
+                  message:
                     type: string
                     example: Bad Request: Missing calories value
   /api/users/communities:
