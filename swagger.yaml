@@ -573,7 +573,21 @@ paths:
                     example: Invalid input data
   /api/classify/set:
     post:
-      summary: Save the classified food calories to database 
+      summary: Save the classified food calories to the database
+      requestBody:
+        description: JSON object containing classified food data
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                foodItem:
+                  type: string
+                  example: Apple
+                calories:
+                  type: integer
+                  example: 95
       responses:
         '200':
           description: Saved calories
