@@ -359,10 +359,20 @@ paths:
                   type: string
                   example: Updated Name
                 location:
-                  type: string
-                  example: {latitude, longitude}
+                  type: object
+                  properties:
+                    latitude:
+                      type: number
+                      example: 3.9167
+                    longitude:
+                      type: number
+                      example: 23.45
+                  example:
+                    latitude: 3.9167
+                    longitude: 23.45
                 email:
                   type: string
+                  example: update@example.com
       responses:
         '200':
           description: Profile updated successfully
@@ -374,6 +384,20 @@ paths:
                   message:
                     type: string
                     example: Profile updated successfully
+                  data:
+                    type: object
+                    properties:
+                      displayName:
+                        type: string
+                      location:
+                        type: object
+                        properties:
+                          latitude:
+                            type: number
+                          longitude:
+                            type: number
+                      email:
+                        type: string
         '400':
           description: Bad Request
           content:
