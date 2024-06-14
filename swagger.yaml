@@ -362,10 +362,10 @@ paths:
                   type: object
                   properties:
                     latitude:
-                      type: number
+                      type: double
                       example: 3.9167
                     longitude:
-                      type: number
+                      type: double
                       example: 23.45
                   example:
                     latitude: 3.9167
@@ -393,9 +393,9 @@ paths:
                         type: object
                         properties:
                           latitude:
-                            type: number
+                            type: double
                           longitude:
-                            type: number
+                            type: double
                       email:
                         type: string
         '400':
