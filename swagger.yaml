@@ -2401,6 +2401,78 @@ paths:
                   error:
                     type: string
                     example: Community not found
+  /recommendations:
+    post:
+      summary: Get sport plan recommendations
+      description: Mengambil rekomendasi rencana olahraga berdasarkan preferensi pengguna
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                preferences:
+                  type: object
+                  properties:
+                    age:
+                      type: integer
+                      example: 25
+                    fitnessLevel:
+                      type: string
+                      example: beginner
+                  required:
+                    - age
+                    - fitnessLevel
+                userId:
+                  type: string
+                  example: testUser123
+              required:
+                - preferences
+                - userId
+      responses:
+        '200':
+          description: Rekomendasi rencana olahraga berhasil diambil
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sportsRecommendations:
+                    type: array
+                    items:
+                      type: string
+                    example: ["soccer", "basketball"]
+                  timeRecommendations:
+                    type: string
+                    example: 30 mins
+                  weeklyRecommendations:
+                    type: string
+                    example: 3 times a week
+                  plans:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: '1'
+                        sport:
+                          type: string
+                          example: soccer
+                        plan:
+                          type: string
+                          example: Soccer Plan A
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Error getting recommendations: Request failed
 components:
   securitySchemes:
     bearerAuth:
