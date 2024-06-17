@@ -2472,7 +2472,7 @@ paths:
                 properties:
                   error:
                     type: string
-                    example: Error getting recommendations: Request failed
+                    example: 'Error getting recommendations: Request failed'
 components:
   securitySchemes:
     bearerAuth:
