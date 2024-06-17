@@ -2401,78 +2401,92 @@ paths:
                   error:
                     type: string
                     example: Community not found
-  /api/recommendations:
-    post:
-      summary: Get sport plan recommendations
-      description: Mengambil rekomendasi rencana olahraga berdasarkan preferensi pengguna
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              properties:
-                preferences:
-                  type: object
-                  properties:
-                    age:
-                      type: integer
-                      example: 25
-                    fitnessLevel:
-                      type: string
-                      example: beginner
-                  required:
-                    - age
-                    - fitnessLevel
-                userId:
-                  type: string
-                  example: testUser123
-              required:
-                - preferences
-                - userId
+  /api/users/plan:
+    get:
+      summary: Get user plan including sport recommendations, nutrition suggestions, and sport plans
+      description: Retrieve the complete user plan including sport recommendations, nutrition suggestions, and sport plans from Firestore.
+      tags:
+        - User Plan
       responses:
         '200':
-          description: Rekomendasi rencana olahraga berhasil diambil
+          description: Successful operation
           content:
             application/json:
               schema:
                 type: object
                 properties:
-                  sportsRecommendations:
-                    type: array
-                    items:
-                      type: string
-                    example: ["running", "soccer", "basketball"]
-                  timeRecommendations:
+                  status:
                     type: string
-                    example: 30 mins
-                  weeklyRecommendations:
+                    example: "Success"
+                  data:
+                    type: object
+                    properties:
+                      recommendations:
+                        type: object
+                        properties:
+                          sportsRecommendations:
+                            type: array
+                            items:
+                              type: string
+                              example: "soccer"
+                          timeRecommendations:
+                            type: string
+                            example: "30 mins"
+                          weeklyRecommendations:
+                            type: string
+                            example: "3 times a week"
+                      recommendedCaloriesNutritions:
+                        type: object
+                        properties:
+                          calories:
+                            type: number
+                            example: 2500
+                          protein:
+                            type: number
+                            example: 150
+                          carbs:
+                            type: number
+                            example: 300
+                          fats:
+                            type: number
+                            example: 70
+                      sportPlans:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            id:
+                              type: string
+                              example: "1"
+                            sport:
+                              type: string
+                              example: "soccer"
+                            plan:
+                              type: string
+                              example: "Soccer Plan A"
+        '404':
+          description: User data not found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
                     type: string
-                    example: 3 times a week
-                  plans:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                          example: '1'
-                        sport:
-                          type: string
-                          example: soccer
-                        plan:
-                          type: string
-                          example: Soccer Plan A
+                    example: "User data not found"
         '500':
-          description: Internal server error
+          description: Internal Server Error
           content:
             application/json:
               schema:
                 type: object
                 properties:
+                  status:
+                    type: string
+                    example: "Internal Server Error"
                   error:
                     type: string
-                    example: 'Error getting recommendations: Request failed'
+                    example: "Error getting user plan"
 components:
   securitySchemes:
     bearerAuth:
