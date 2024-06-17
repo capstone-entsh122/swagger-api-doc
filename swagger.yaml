@@ -2442,37 +2442,37 @@ paths:
                     type: array
                     items:
                       type: string
-                    example: ["soccer", "basketball"]
-                  timeRecommendations:
-                    type: string
-                    example: 30 mins
-                  weeklyRecommendations:
-                    type: string
-                    example: 3 times a week
-                  plans:
-                    type: array
-                    items:
-                      type: object
-                      properties:
-                        id:
-                          type: string
-                          example: '1'
-                        sport:
-                          type: string
-                          example: soccer
-                        plan:
-                          type: string
-                          example: Soccer Plan A
-        '500':
-          description: Internal server error
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                    example: 'Error getting recommendations: Request failed'
+                      example: ["soccer", "basketball"]
+                    timeRecommendations:
+                      type: string
+                      example: 30 mins
+                    weeklyRecommendations:
+                      type: string
+                      example: 3 times a week
+                    plans:
+                      type: array
+                      items:
+                        type: object
+                        properties:
+                          id:
+                            type: string
+                            example: '1'
+                          sport:
+                            type: string
+                            example: soccer
+                          plan:
+                            type: string
+                            example: Soccer Plan A
+          '500':
+            description: Internal server error
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    error:
+                      type: string
+                      example: 'Error getting recommendations: Request failed'
 components:
   securitySchemes:
     bearerAuth:
