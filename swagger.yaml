@@ -2442,7 +2442,7 @@ paths:
                     type: array
                     items:
                       type: string
-                    example: ["soccer", "basketball"]
+                    example: ["running", "soccer", "basketball"]
                   timeRecommendations:
                     type: string
                     example: 30 mins
