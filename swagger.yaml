@@ -2487,6 +2487,49 @@ paths:
                   error:
                     type: string
                     example: "Error getting user plan"
+  /api/users/update-token:
+    post:
+      summary: Update FCM Token
+      description: Updates the FCM token for the user
+      requestBody:
+        description: FCM Token to be updated
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                token:
+                  type: string
+                  description: The FCM token to be updated
+                  example: "your-fcm-token"
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "Success"
+                  message:
+                    type: string
+                    example: "Token updated successfully"
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Error"
+                  error:
+                    type: string
+                    example: "Failed to update token"
 components:
   securitySchemes:
     bearerAuth:
